@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/xipat-demo/static/css/main.e6c13ad2.css",
-    "main.js": "/xipat-demo/static/js/main.974072b1.js",
+    "main.js": "/xipat-demo/static/js/main.d588341a.js",
     "static/js/787.f02919a5.chunk.js": "/xipat-demo/static/js/787.f02919a5.chunk.js",
     "index.html": "/xipat-demo/index.html",
     "main.e6c13ad2.css.map": "/xipat-demo/static/css/main.e6c13ad2.css.map",
-    "main.974072b1.js.map": "/xipat-demo/static/js/main.974072b1.js.map",
+    "main.d588341a.js.map": "/xipat-demo/static/js/main.d588341a.js.map",
     "787.f02919a5.chunk.js.map": "/xipat-demo/static/js/787.f02919a5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.974072b1.js"
+    "static/js/main.d588341a.js"
   ]
 }
