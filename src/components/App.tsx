@@ -1,7 +1,13 @@
+import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Layout, Menu } from "antd";
 import React, { useState } from "react";
-import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Navigate,
+  Route,
+  Routes,
+} from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Posts from "./Posts";
 import Settings from "./Settings";
@@ -14,13 +20,13 @@ function App() {
   const getDefaultKey = () => {
     const pathName = window.location.pathname;
     let key = "";
-    if (pathName === "/") {
+    if (pathName.includes("dashboard") || pathName === "/") {
       key = "1";
     }
-    if (pathName === "/posts") {
+    if (pathName.includes("posts")) {
       key = "2";
     }
-    if (pathName === "/settings") {
+    if (pathName.includes("settings")) {
       key = "3";
     }
     return key;
@@ -38,7 +44,7 @@ function App() {
           >
             <Menu.Item key="1">
               <span>Dashboard</span>
-              <Link to="/" />
+              <Link to="/dashboard" />
             </Menu.Item>
             <Menu.Item key="2">
               <span>Posts Management</span>
@@ -69,7 +75,10 @@ function App() {
             }}
           >
             <Routes>
-              <Route path="/" element={<Dashboard />}></Route>
+              <Route path="/" element={<Navigate to="/dashboard" />} />
+              <Route path="dashboard" element={<Dashboard />} />
+              <Route path="dashboard/line-chart" element={<Dashboard />} />
+              <Route path="dashboard/column-chart" element={<Dashboard />} />
               <Route path="posts" element={<Posts />} />
               <Route path="settings" element={<Settings />} />
             </Routes>

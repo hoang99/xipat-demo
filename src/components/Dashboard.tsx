@@ -1,32 +1,23 @@
 import { Tabs } from "antd";
-import React, { useState } from "react";
-
-import Chart from "react-apexcharts";
+import { useNavigate } from "react-router-dom";
+import ColumnChart from "./ColumnChart";
+import LineChart from "./LineChart";
 
 function Dashboard() {
-  const [options, setOptions] = useState({
-    chart: {
-      id: "basic-bar",
-    },
-    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-    },
-  });
-  const [series, setSeries] = useState([
-    {
-      name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91],
-    },
-  ]);
-
+  const navigate = useNavigate();
   return (
     <>
-      <Tabs defaultActiveKey="1">
-        <Tabs.TabPane tab="Subscription" key="1">
-          <Chart options={options} series={series} type="line" width="500" />
+      <Tabs
+        defaultActiveKey="line-chart"
+        onChange={(path) => {
+          navigate(`../dashboard/${path}`);
+        }}
+      >
+        <Tabs.TabPane tab="Subscription" key="line-chart">
+          <LineChart />
         </Tabs.TabPane>
-        <Tabs.TabPane tab="Revenue" key="2">
-          Content of Tab Pane 2
+        <Tabs.TabPane tab="Revenue" key="column-chart">
+          <ColumnChart />
         </Tabs.TabPane>
       </Tabs>
     </>
